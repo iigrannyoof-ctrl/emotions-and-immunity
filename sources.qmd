@@ -1,0 +1,29 @@
+---
+title: "Research & Sources"
+body-classes: sources-page
+---
+
+<div class="page-heading">
+  <p class="eyebrow">Primary sources &amp; research context</p>
+  <h1>Research &amp; sources</h1>
+  <p>CDC documentation describes how the survey measures were collected. The research articles provide context—not a substitute for this project's descriptive analysis.</p>
+</div>
+
+## CDC NHANES documentation
+
+<div class="source-list">
+  <article class="source-card"><span class="source-type">Demographics</span><h2><a href="https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/DEMO_J.htm">NHANES 2017–2018 Demographic Variables and Sample Weights (DEMO_J)</a></h2><p>Documentation for age, sex, participant identifiers, and the survey's demographic data.</p></article>
+  <article class="source-card"><span class="source-type">Questionnaire</span><h2><a href="https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/DPQ_J.htm">NHANES 2017–2018 Depression Screener (DPQ_J)</a></h2><p>Questionnaire documentation and response coding for the nine depression screener items.</p></article>
+  <article class="source-card"><span class="source-type">Laboratory</span><h2><a href="https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/HSCRP_J.htm">NHANES 2017–2018 High-Sensitivity C-Reactive Protein (HSCRP_J)</a></h2><p>Laboratory documentation for hs-CRP concentration, measured in mg/L.</p></article>
+</div>
+
+## Peer-reviewed context
+
+<div class="source-list">
+  <article class="source-card"><span class="source-type">NHANES · 2026</span><h2><a href="https://pubmed.ncbi.nlm.nih.gov/42382711/">The association between high-sensitivity C-reactive protein and depression symptom severity among U.S. adults: A multivariable analysis of NHANES data</a></h2><p>Arellano JG, Lim E, Siriwardhana C, Chen JJ. <em>Brain, Behavior, &amp; Immunity – Health</em>, 2026. A multivariable NHANES analysis relevant to the question; its adjusted, survey-based findings are distinct from the unweighted descriptive charts on this site.</p></article>
+  <article class="source-card"><span class="source-type">Cross-sectional study · 2024</span><h2><a href="https://pubmed.ncbi.nlm.nih.gov/38596631/">Association between hs-CRP and depressive symptoms: a cross-sectional study</a></h2><p>Ji Y, Wang J, Chen H, Li J, Chen M. <em>Frontiers in Psychiatry</em>, 2024. Cross-sectional research examining the relationship between hs-CRP and depressive symptoms. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11002220/">Read the full text at PubMed Central.</a></p></article>
+</div>
+
+## Data and interpretation
+
+The original CDC files are downloaded directly by the reproducible script: [DEMO_J.XPT](https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/DEMO_J.XPT), [DPQ_J.XPT](https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/DPQ_J.XPT), and [HSCRP_J.XPT](https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/HSCRP_J.XPT). See [How We Measured It](methods.html) for the adult complete-case population, score definitions, and limitations.

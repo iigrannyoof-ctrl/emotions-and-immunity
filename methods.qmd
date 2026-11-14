@@ -1,0 +1,45 @@
+---
+title: "How We Measured It"
+body-classes: methods-page
+---
+
+<div class="page-heading">
+  <p class="eyebrow">Transparent data, reproducible steps</p>
+  <h1>How we measured it</h1>
+  <p>Every participant shown comes from original CDC NHANES files. The preparation script downloads, joins, validates, and cleans these source records.</p>
+</div>
+
+```{r}
+source("scripts/prepare_data.R")
+library(dplyr)
+method_data <- read_clean_data()
+method_n <- nrow(method_data)
+```
+
+## Source and population
+
+The data come from the U.S. Centers for Disease Control and Prevention's National Health and Nutrition Examination Survey (NHANES), **2017–2018**. We joined the demographics (`DEMO_J`), depression screener (`DPQ_J`), and high-sensitivity C-reactive protein (`HSCRP_J`) files using the participant sequence number `SEQN`. The analytic population is adults aged **20 years or older** with reported sex, valid responses to all nine selected PHQ items, and a nonmissing hs-CRP result.
+
+The final dataset contains **`r format(method_n, big.mark = ",")` complete adult participants**. This count reflects the actual joined records after exclusions; no participants were added, duplicated, or simulated.
+
+## Measures and definitions
+
+The nine questions `DPQ010` through `DPQ090` each use valid response codes 0–3. We excluded any record with a missing response or an invalid item code (7 or 9), then summed the nine valid responses for a total **PHQ-9 score from 0 to 27**:
+
+| Score | Symptom-severity category |
+|:--|:--|
+| 0–4 | Minimal |
+| 5–9 | Mild |
+| 10–14 | Moderate |
+| 15–19 | Moderately severe |
+| 20–27 | Severe |
+
+The laboratory variable `LBXHSCRP` is reported in **mg/L**. For this descriptive analysis, elevated hs-CRP is defined as a value **greater than 3 mg/L**; a value equal to 3 is not counted as elevated. Age groups in the interactive view are 20–39, 40–59, and 60 years or older. Sex categories follow the NHANES `RIAGENDR` coding (female or male).
+
+## What the numbers mean
+
+The charts report raw participant-level observations, unweighted counts, medians, and percentages among the complete-case adults used here. They are not survey-weighted estimates and are not adjusted for other characteristics. Missing values are excluded rather than imputed.
+
+PHQ-9 is a self-reported symptom screener, not a clinical diagnosis and not a measure of all emotions. hs-CRP is a nonspecific biomarker of inflammation, not a direct measure of immune strength or recovery speed. As a cross-sectional observational analysis, this project cannot establish causation, direction, or an individual's likely outcome.
+
+The reproducible download and cleaning code is in [`scripts/prepare_data.R`](scripts/prepare_data.R). It caches the original XPT files under `data/raw/` and writes the cleaned CSV plus static-site JSON export to `data/processed/`.

@@ -1,0 +1,88 @@
+---
+title: "When Emotions Become Physical"
+body-classes: story-page
+---
+
+<div class="page-heading story-heading">
+  <p class="eyebrow">A measured question, not a simple answer</p>
+  <h1>When Emotions Become Physical</h1>
+  <p>What does a self-reported symptom scale have to do with a blood marker? This comparison offers a careful starting point.</p>
+</div>
+
+```{r}
+source("scripts/prepare_data.R")
+library(dplyr)
+library(ggplot2)
+data <- read_clean_data()
+severity_levels <- c("Minimal", "Mild", "Moderate", "Moderately severe", "Severe")
+severity_summary <- data |>
+  dplyr::mutate(phq9_category = factor(phq9_category, levels = severity_levels)) |>
+  dplyr::group_by(phq9_category, .drop = FALSE) |>
+  dplyr::summarise(
+    n = dplyr::n(),
+    elevated_n = sum(elevated_hscrp),
+    .groups = "drop"
+  ) |>
+  dplyr::mutate(
+    elevated_pct = ifelse(n > 0, 100 * elevated_n / n, NA_real_),
+    denominator = paste0("n = ", format(n, big.mark = ","))
+  )
+severity_present <- dplyr::filter(severity_summary, n > 0)
+```
+
+## The share above 3 mg/L
+
+Each bar is the percentage of participants in that PHQ-9 symptom group whose hs-CRP was above 3 mg/L. Denominators are shown below the group labels; values describe this complete-case sample, not the U.S. population.
+
+```{r}
+ggplot(severity_present, aes(x = phq9_category, y = elevated_pct)) +
+  geom_col(width = 0.66, fill = "#78A98B", color = "#244A3C", linewidth = 0.3) +
+  geom_text(
+    aes(label = sprintf("%.1f%%", elevated_pct)),
+    vjust = -0.65,
+    color = "#244A3C",
+    fontface = "bold",
+    size = 4
+  ) +
+  geom_text(
+    aes(y = -4.7, label = denominator),
+    color = "#53695c",
+    size = 3.2
+  ) +
+  scale_x_discrete(drop = TRUE, labels = function(x) gsub(" ", "\n", x, fixed = TRUE)) +
+  scale_y_continuous(
+    limits = c(-7, max(severity_present$elevated_pct, na.rm = TRUE) + 10),
+    breaks = scales::pretty_breaks(n = 5),
+    labels = function(x) paste0(x, "%"),
+    expand = expansion(mult = c(0, 0))
+  ) +
+  labs(
+    x = "PHQ-9 depressive symptom group",
+    y = "Participants with hs-CRP > 3 mg/L",
+    caption = paste0(
+      "Unweighted complete-case percentages · N = ", format(nrow(data), big.mark = ","),
+      " · hs-CRP threshold: >3 mg/L."
+    )
+  ) +
+  coord_cartesian(clip = "off") +
+  theme_minimal(base_size = 13) +
+  theme(
+    panel.grid.minor = element_blank(),
+    panel.grid.major.x = element_blank(),
+    panel.grid.major.y = element_line(color = "#e1e9e3"),
+    axis.text.x = element_text(color = "#294a3d", lineheight = 0.96, margin = margin(t = 10)),
+    axis.title = element_text(color = "#294a3d"),
+    plot.caption = element_text(color = "#5b7163", hjust = 0),
+    plot.margin = margin(16, 20, 42, 12)
+  )
+```
+
+The question here is whether the proportion above a commonly used hs-CRP threshold differs across PHQ-9 symptom groups in adults who completed all the selected NHANES measures. The PHQ-9 asks about nine symptoms over the previous two weeks; it is a screening measure, not a diagnosis or a complete account of someone's emotional life.
+
+In this sample, the observed proportions range from **`r sprintf("%.1f%%", min(severity_present$elevated_pct))`** to **`r sprintf("%.1f%%", max(severity_present$elevated_pct))`** across groups. The group denominators shown on the chart matter: the more severe symptom categories can have fewer participants, so their percentages may be less stable. These figures are unweighted descriptions, not adjusted estimates for all U.S. adults.
+
+A 2026 NHANES analysis by Arellano and colleagues examined hs-CRP and depression symptom severity using multivariable methods. That peer-reviewed work provides context, but this project uses a complete-case subset and does not apply survey weights or reproduce its adjusted analyses. A separate 2024 cross-sectional study also examines hs-CRP alongside depressive symptoms.
+
+NHANES is observational and these measurements do not establish which came first, explain an association, or rule out other factors. hs-CRP is a nonspecific marker of inflammation—not a measure of immune strength, emotional experience as a whole, or how quickly a person recovers.
+
+<div class="editorial-callout editorial-callout-note"><span class="callout-icon" aria-hidden="true">i</span><div><strong>Interpret with care</strong><p>Group-level percentages cannot diagnose individuals. This visualization does not measure immune function or healing speed, and it does not support a cause-and-effect conclusion.</p></div></div>

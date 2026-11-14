@@ -1,0 +1,10 @@
+.quarto/
+_site/
+.Rhistory
+.RData
+.Ruserdata
+*.Rproj
+data/raw/*.part
+
+/.quarto/
+**/*.quarto_ipynb

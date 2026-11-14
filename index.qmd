@@ -1,0 +1,116 @@
+---
+title: "The Mind–Immunity Connection"
+subtitle: "Exploring the relationship between depressive symptoms and inflammation in U.S. adults."
+body-classes: home-page
+---
+
+<div class="hero">
+<div class="hero-copy">
+<p class="eyebrow">A closer look at health, mood &amp; inflammation</p>
+<h1>The Mind–Immunity Connection</h1>
+<p class="hero-deck">Exploring the relationship between depressive symptoms and inflammation in U.S. adults.</p>
+<p class="hero-intro">Could depressive symptoms and a marker of inflammation appear together in a national health survey? We explored this question using real participant data from the 2017–2018 National Health and Nutrition Examination Survey (NHANES).</p>
+<a class="button button-primary" href="explore.html">Explore the evidence <span aria-hidden="true">→</span></a>
+</div>
+<div class="hero-art" aria-hidden="true">
+<div class="orbit orbit-one"></div>
+<div class="orbit orbit-two"></div>
+<div class="orbit-core"><span>mind</span><i>↔</i><span>body</span></div>
+<span class="orbit-dot dot-one"></span><span class="orbit-dot dot-two"></span>
+</div>
+</div>
+
+```{r}
+source("scripts/prepare_data.R")
+library(tidyverse)
+data <- read_clean_data()
+participant_n <- nrow(data)
+elevated_pct <- mean(data$elevated_hscrp) * 100
+median_hscrp <- median(data$hs_crp_mg_l)
+```
+
+<section class="kpi-grid" aria-label="Study summary statistics">
+  <article class="kpi-card"><span class="kpi-label">Complete adult participants</span><strong>`r format(participant_n, big.mark = ",")`</strong><span class="kpi-note">Real, complete observations</span></article>
+  <article class="kpi-card"><span class="kpi-label">Above 3 mg/L hs-CRP</span><strong>`r sprintf("%.1f%%", elevated_pct)`</strong><span class="kpi-note">Unweighted share of this sample</span></article>
+  <article class="kpi-card"><span class="kpi-label">Median hs-CRP</span><strong>`r sprintf("%.2f", median_hscrp)` <small>mg/L</small></strong><span class="kpi-note">Among complete adult participants</span></article>
+</section>
+
+<div class="editorial-callout editorial-callout-caution">
+<span class="callout-icon" aria-hidden="true">i</span>
+<div><strong>What this project can—and cannot—say</strong><p>These are unadjusted, descriptive patterns in one survey sample. They are not causal findings and do not reproduce survey-weighted adjusted research. A depression symptom score is not a measure of every emotion; hs-CRP is one inflammation marker, not a measure of immune strength or recovery speed.</p></div>
+</div>
+
+## One dot, one participant
+
+Each point below represents one complete adult NHANES participant. The horizontal position is their PHQ-9 symptom score; the vertical position is their hs-CRP concentration. Overlapping points are made visible with slight jitter and transparency. The vertical axis uses a log10 scale; hover over a point for age, sex, score, and concentration.
+
+```{r}
+library(ggplot2)
+library(plotly)
+set.seed(20261114)
+
+scatter <- ggplot(
+  data,
+  aes(
+    x = phq9_score,
+    y = hs_crp_mg_l,
+    color = factor(
+      phq9_category,
+      levels = c("Minimal", "Mild", "Moderate", "Moderately severe", "Severe")
+    ),
+    text = paste0(
+      "PHQ-9 score: ", phq9_score,
+      "<br>hs-CRP: ", sprintf("%.2f", hs_crp_mg_l), " mg/L",
+      "<br>Age: ", age,
+      "<br>Sex: ", sex,
+      "<br>Symptom group: ", phq9_category
+    )
+  )
+) +
+  geom_jitter(width = 0.18, height = 0, alpha = 0.28, size = 1.6) +
+  scale_color_manual(
+    values = c(
+      "Minimal" = "#20B8A5",
+      "Mild" = "#159982",
+      "Moderate" = "#397f8a",
+      "Moderately severe" = "#315d75",
+      "Severe" = "#102638"
+    ),
+    name = "PHQ-9 symptom group"
+  ) +
+  scale_x_continuous(breaks = seq(0, 27, by = 3), limits = c(-0.7, 27.7)) +
+  scale_y_log10() +
+  labs(
+    x = "PHQ-9 depressive symptom score (0–27)",
+    y = "hs-CRP concentration (mg/L, log10 scale)",
+    caption = paste0("One dot per participant · N = ", format(participant_n, big.mark = ","), " · Points jittered horizontally only.")
+  ) +
+  theme_minimal(base_size = 13) +
+  theme(
+    panel.grid.minor = element_blank(),
+    panel.grid.major = element_line(color = "#dce8e7"),
+    axis.title = element_text(color = "#29465b"),
+    plot.caption = element_text(color = "#5f7480", hjust = 0),
+    plot.margin = margin(12, 14, 12, 8)
+  )
+
+ggplotly(scatter, tooltip = "text", height = 480) |>
+  layout(
+    font = list(family = "system-ui, sans-serif", color = "#29465b"),
+    hoverlabel = list(bgcolor = "white", bordercolor = "#20B8A5"),
+    margin = list(l = 70, r = 20, b = 90, t = 20)
+  ) |>
+  config(displaylogo = FALSE, responsive = TRUE)
+```
+
+## A marker, not a verdict
+
+Inflammation is part of the body's response to injury and infection. C-reactive protein is produced by the liver, and hs-CRP is a sensitive blood measure of this protein. It can be associated with many conditions and circumstances; one measurement does not describe someone's whole immune system.
+
+This plot shows how two measured values sit alongside one another in this sample. It cannot establish why either value is higher or lower, predict an individual's health, or show that one causes the other.
+
+<div class="link-cards">
+  <a class="link-card" href="explore.html"><span class="card-icon">↗</span><span><strong>Explore the evidence</strong><small>Filter participants and compare symptom groups.</small></span></a>
+  <a class="link-card" href="story.html"><span class="card-icon">◒</span><span><strong>When emotions become physical</strong><small>See the symptom-group comparison and context.</small></span></a>
+  <a class="link-card" href="methods.html"><span class="card-icon">⌕</span><span><strong>How we measured it</strong><small>Follow the data, definitions, and limitations.</small></span></a>
+</div>

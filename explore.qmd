@@ -1,0 +1,105 @@
+---
+title: "Explore the Evidence"
+body-classes: explore-page
+---
+
+<div class="page-heading">
+  <p class="eyebrow">Your filters, the real survey data</p>
+  <h1>Explore the evidence</h1>
+  <p>Filter the complete adult NHANES participants below. Counts, summaries, and the chart update together in your browser—no server is needed.</p>
+</div>
+
+```{r}
+source("scripts/prepare_data.R")
+library(ggplot2)
+library(plotly)
+explore_data <- read_clean_data()
+```
+
+<section class="interactive-panel" aria-labelledby="filter-title">
+  <h2 id="filter-title">Choose a group to explore</h2>
+  <div class="filter-grid">
+<label for="age-filter">Age group
+<select id="age-filter"><option value="all">All adults</option><option value="20–39">20–39</option><option value="40–59">40–59</option><option value="60+">60+</option></select>
+</label>
+<label for="sex-filter">Sex
+<select id="sex-filter"><option value="all">All</option><option value="Female">Female</option><option value="Male">Male</option></select>
+</label>
+<label for="severity-filter">PHQ-9 symptom group
+<select id="severity-filter">
+<option value="all">All symptom groups</option>
+<option value="Minimal">Minimal (0–4)</option>
+<option value="Mild">Mild (5–9)</option>
+<option value="Moderate">Moderate (10–14)</option>
+<option value="Moderately severe">Moderately severe (15–19)</option>
+<option value="Severe">Severe (20–27)</option>
+</select>
+</label>
+  </div>
+  <div class="toggle-row">
+<fieldset class="chart-toggle">
+<legend>Chart view</legend>
+<label><input type="radio" name="chart-view" value="scatter" checked> Participant scatterplot</label>
+<label><input type="radio" name="chart-view" value="percent"> Elevated hs-CRP by symptom group</label>
+</fieldset>
+<button class="button button-secondary" id="reset-filters" type="button">Reset filters</button>
+  </div>
+</section>
+
+<section class="explore-summary" aria-live="polite" aria-atomic="true" aria-label="Filtered participant summaries">
+  <div class="summary-chip"><span>Participants in view</span><strong id="filtered-n">Loading…</strong></div>
+  <div class="summary-chip"><span>Above 3 mg/L hs-CRP</span><strong id="filtered-elevated">—</strong></div>
+  <div class="summary-chip"><span>Median hs-CRP</span><strong id="filtered-median">—</strong></div>
+</section>
+<p id="explore-status" class="status-text" role="status">Loading the locally stored NHANES observations…</p>
+
+### Participant-level view
+
+<div class="chart-card">
+
+```{r}
+base_plot <- ggplot(
+  explore_data,
+  aes(x = phq9_score, y = hs_crp_mg_l)
+) +
+  geom_jitter(width = 0.16, height = 0, alpha = 0.25, size = 1.4, color = "#A78BFA") +
+  scale_x_continuous(breaks = seq(0, 27, by = 3), limits = c(-0.7, 27.7)) +
+  scale_y_log10() +
+  labs(
+    x = "PHQ-9 depressive symptom score (0–27)",
+    y = "hs-CRP concentration (mg/L, log10 scale)"
+  ) +
+  theme_minimal(base_size = 12) +
+  theme(panel.grid.minor = element_blank(), panel.grid.major = element_line(color = "#e8e4f2"))
+
+initial_widget <- ggplotly(base_plot, height = 450) |>
+  layout(
+    font = list(family = "system-ui, sans-serif", color = "#403b60"),
+    margin = list(l = 70, r = 18, b = 72, t = 16)
+  ) |>
+  config(displaylogo = FALSE, responsive = TRUE)
+
+htmlwidgets::onRender(initial_widget, "
+function(el, x) {
+  el.id = 'interactive-chart';
+  el.setAttribute('aria-label', 'Interactive chart of PHQ-9 scores and hs-CRP concentrations');
+}
+")
+```
+
+</div>
+
+<div class="table-wrap">
+  <h2>Statistics by symptom group</h2>
+  <p>Each row recalculates for the selected age, sex, and symptom filters. Percentages are unweighted.</p>
+  <table class="stats-table">
+    <thead><tr><th scope="col">PHQ-9 symptom group</th><th scope="col">Participants, n</th><th scope="col">Above 3 mg/L</th><th scope="col">Median hs-CRP (mg/L)</th></tr></thead>
+    <tbody id="group-statistics"><tr><td colspan="4">Loading participant data…</td></tr></tbody>
+  </table>
+</div>
+
+<div class="editorial-callout editorial-callout-note"><span class="callout-icon" aria-hidden="true">↗</span><div><strong>Reading these comparisons</strong><p>The charts and summaries are descriptive and unweighted. A higher percentage in one group is not evidence that depressive symptoms caused inflammation—or that this pattern applies to an individual.</p></div></div>
+
+```{r}
+htmltools::tags$script(src = "scripts/explore.js")
+```
