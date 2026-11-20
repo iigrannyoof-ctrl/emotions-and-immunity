@@ -22,13 +22,15 @@ website:
         href: methods.qmd
       - text: "Research & Sources"
         href: sources.qmd
+      - text: "About"
+        href: about.qmd
   page-footer:
     left: "An unweighted, descriptive look at NHANES 2017–2018."
     right: "Association is not causation."
 
 format:
   html:
-    theme: none
+    theme: cosmo
     css: styles.css
     toc: false
     smooth-scroll: true

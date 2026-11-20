@@ -1,0 +1,26 @@
+---
+title: "About"
+body-classes: about-page
+---
+
+<div class="page-heading">
+  <p class="eyebrow">About this project</p>
+  <h1>About</h1>
+</div>
+
+## About the author
+
+<section class="about-card" aria-label="Author and project links">
+  <h2>More About</h2>
+  <p>Get in touch or find the project and its creator online.</p>
+  <ul class="about-links">
+    <li><strong>Email</strong><a href="mailto:iigrannyoof@gmail.com">iigrannyoof@gmail.com</a></li>
+    <li><strong>GitHub</strong><a href="https://github.com/iigrannyoof-ctrl">github.com/iigrannyoof-ctrl</a></li>
+    <li><strong>Project repository</strong><a href="https://github.com/iigrannyoof-ctrl/emotions-and-immunity">github.com/iigrannyoof-ctrl/emotions-and-immunity</a></li>
+    <li><strong>New College of Florida</strong><a href="https://www.ncf.edu/">ncf.edu</a></li>
+  </ul>
+</section>
+
+## Data source
+
+This project uses adult participant data from the **2017–2018 National Health and Nutrition Examination Survey (NHANES)**, conducted by the U.S. Centers for Disease Control and Prevention. The analysis joins the [demographics](https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/DEMO_J.htm), [depression screener](https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/DPQ_J.htm), and [high-sensitivity C-reactive protein](https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/HSCRP_J.htm) records. See [How We Measured It](methods.html) for the selection rules, measures, and limitations.

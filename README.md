@@ -2,7 +2,9 @@
 
 A Quarto website exploring depressive symptoms and hs-CRP in NHANES 2017–2018 adults. All results are based on the original CDC files and are descriptive, unweighted, and observational.
 
-> The existing GitHub repository is `r-devcontainer`, not `emotions-and-immunity`. This project does not change the Git remote. Rename the repository on GitHub if `emotions-and-immunity` is the desired repository name.
+The site includes an interactive participant explorer, a symptom-group comparison, methods and source notes, and an About page with project and data-source links.
+
+The source repository is [iigrannyoof-ctrl/emotions-and-immunity](https://github.com/iigrannyoof-ctrl/emotions-and-immunity).
 
 ## Rebuild the data
 
