@@ -26,18 +26,52 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-.display.math{display: block; text-align: center; margin: 0.5rem auto;}
 </style>
 
 
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-html/tabby.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-html-640605f58ae58ee79329c070719e555b.min.css" rel="stylesheet" append-hash="true" data-mode="light">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-fc36099d2caf07651d22990d31c4621e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
 <style>html{ scroll-behavior: smooth; }</style>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -45,11 +79,77 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="methods-page">
+<body class="nav-fixed methods-page fullcontent quarto-light">
 
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">The Mind–Immunity Connection</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./explore.html"> 
+<span class="menu-text">Explore the Evidence</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./story.html"> 
+<span class="menu-text">When Emotions Become Physical</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./methods.html" aria-current="page"> 
+<span class="menu-text">How We Measured It</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./sources.html"> 
+<span class="menu-text">Research &amp; Sources</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
 
-<header id="title-block-header">
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
 <h1 class="title">How We Measured It</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
 
 </header>
 
@@ -65,12 +165,15 @@ How we measured it
 Every participant shown comes from original CDC NHANES files. The preparation script downloads, joins, validates, and cleans these source records.
 </p>
 </div>
-<h2 id="source-and-population">Source and population</h2>
+<section id="source-and-population" class="level2">
+<h2 data-anchor-id="source-and-population">Source and population</h2>
 <p>The data come from the U.S. Centers for Disease Control and Prevention’s National Health and Nutrition Examination Survey (NHANES), <strong>2017–2018</strong>. We joined the demographics (<code>DEMO_J</code>), depression screener (<code>DPQ_J</code>), and high-sensitivity C-reactive protein (<code>HSCRP_J</code>) files using the participant sequence number <code>SEQN</code>. The analytic population is adults aged <strong>20 years or older</strong> with reported sex, valid responses to all nine selected PHQ items, and a nonmissing hs-CRP result.</p>
 <p>The final dataset contains <strong>4,537 complete adult participants</strong>. This count reflects the actual joined records after exclusions; no participants were added, duplicated, or simulated.</p>
-<h2 id="measures-and-definitions">Measures and definitions</h2>
+</section>
+<section id="measures-and-definitions" class="level2">
+<h2 data-anchor-id="measures-and-definitions">Measures and definitions</h2>
 <p>The nine questions <code>DPQ010</code> through <code>DPQ090</code> each use valid response codes 0–3. We excluded any record with a missing response or an invalid item code (7 or 9), then summed the nine valid responses for a total <strong>PHQ-9 score from 0 to 27</strong>:</p>
-<table class="caption-top">
+<table class="caption-top table">
 <thead>
 <tr class="header">
 <th style="text-align: left;">Score</th>
@@ -101,18 +204,19 @@ Every participant shown comes from original CDC NHANES files. The preparation sc
 </tbody>
 </table>
 <p>The laboratory variable <code>LBXHSCRP</code> is reported in <strong>mg/L</strong>. For this descriptive analysis, elevated hs-CRP is defined as a value <strong>greater than 3 mg/L</strong>; a value equal to 3 is not counted as elevated. Age groups in the interactive view are 20–39, 40–59, and 60 years or older. Sex categories follow the NHANES <code>RIAGENDR</code> coding (female or male).</p>
-<h2 id="what-the-numbers-mean">What the numbers mean</h2>
+</section>
+<section id="what-the-numbers-mean" class="level2">
+<h2 data-anchor-id="what-the-numbers-mean">What the numbers mean</h2>
 <p>The charts report raw participant-level observations, unweighted counts, medians, and percentages among the complete-case adults used here. They are not survey-weighted estimates and are not adjusted for other characteristics. Missing values are excluded rather than imputed.</p>
 <p>PHQ-9 is a self-reported symptom screener, not a clinical diagnosis and not a measure of all emotions. hs-CRP is a nonspecific biomarker of inflammation, not a direct measure of immune strength or recovery speed. As a cross-sectional observational analysis, this project cannot establish causation, direction, or an individual’s likely outcome.</p>
 <p>The reproducible download and cleaning code is in <a href="scripts/prepare_data.R"><code>scripts/prepare_data.R</code></a>. It caches the original XPT files under <code>data/raw/</code> and writes the cleaned CSV plus static-site JSON export to <code>data/processed/</code>.</p>
 
 
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
-    const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
-    tabsets.forEach(function(tabset) {
-      const tabby = new Tabby('#' + tabset.id);
-    });
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
         if (clz.startsWith('code-annotation-')) {                     
@@ -209,7 +313,7 @@ Every participant shown comes from original CDC NHANES files. The preparation sc
         },
         interactive: true,
         interactiveBorder: 10,
-        theme: 'light-border',
+        theme: 'quarto',
         placement: 'bottom-start',
       };
       if (contentFn) {
@@ -509,6 +613,20 @@ Every participant shown comes from original CDC NHANES files. The preparation sc
     }
   });
   </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>An unweighted, descriptive look at NHANES 2017–2018.</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Association is not causation.</p>
+</div>
+  </div>
+</footer>
 
 
 
