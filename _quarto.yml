@@ -4,6 +4,7 @@ project:
   resources:
     - data/processed/explore_data.json
     - scripts/explore.js
+    - scripts/quiz.js
 
 website:
   title: "The Mind–Immunity Connection"
@@ -16,6 +17,8 @@ website:
         href: index.qmd
       - text: "Explore the Evidence"
         href: explore.qmd
+      - text: "Knowledge Quest"
+        href: quiz.qmd
       - text: "When Emotions Become Physical"
         href: story.qmd
       - text: "How We Measured It"

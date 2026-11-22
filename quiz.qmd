@@ -1,0 +1,43 @@
+---
+title: "Knowledge Quest"
+body-classes: quiz-page
+---
+
+<div class="quiz-intro">
+<div class="page-heading">
+<p class="eyebrow">A five-minute refresher</p>
+<h1>Knowledge Quest</h1>
+<p>Take a quick quiz on what the survey can tell us—and what it can’t. Every answer comes with a short explanation, so it’s a game and a recap.</p>
+</div>
+<div class="quiz-art" aria-hidden="true"><span>mind <b>↔</b> body</span></div>
+</div>
+
+<section class="quiz-panel" aria-label="Knowledge Quest quiz">
+<div class="quiz-topline">
+<span id="quiz-count">Question 1 of 6</span>
+<span id="quiz-streak">✨ Ready?</span>
+</div>
+<div class="quiz-progress" role="progressbar" aria-label="Quiz progress" aria-valuemin="0" aria-valuemax="6" aria-valuenow="0">
+<span id="quiz-progress-fill"></span>
+</div>
+<h2 class="quiz-question" id="quiz-question" tabindex="-1"></h2>
+<div class="quiz-options" id="quiz-options"></div>
+<p class="quiz-feedback" id="quiz-feedback" aria-live="polite" hidden></p>
+<div class="quiz-actions" id="quiz-actions">
+<span class="quiz-score" id="quiz-score" aria-live="polite">Score: 0</span>
+<button class="button button-primary quiz-next" id="quiz-next" type="button" hidden>Next question <span aria-hidden="true">→</span></button>
+</div>
+<div class="quiz-results" id="quiz-results" aria-live="polite" hidden>
+<div class="quiz-results-mark" aria-hidden="true">✦</div>
+<h2 id="quiz-results-title">Quest complete!</h2>
+<p id="quiz-results-score"></p>
+<div class="quiz-takeaway"><strong>Keep this in mind:</strong> These are unweighted, descriptive patterns in one survey sample. They do not show cause and effect, diagnose anyone, or measure overall immune strength.</div>
+<button class="button button-primary" id="quiz-restart" type="button">Play again <span aria-hidden="true">↻</span></button>
+</div>
+</section>
+
+<p class="quiz-note">Just for learning—not a health assessment. This quiz uses the same definitions and cautions as the project’s <a href="methods.html">methods</a> and <a href="story.html">findings</a>.</p>
+
+```{r}
+htmltools::tags$script(src = "scripts/quiz.js")
+```
