@@ -35,6 +35,27 @@
     "text": "Your filters, the real survey data\n\n\nExplore the evidence\n\n\nFilter the complete adult NHANES participants below. Counts, summaries, and the chart update together in your browser—no server is needed.\n\n\n\n\nChoose a group to explore\n\n\nAge group All adults20–3940–5960+  Sex AllFemaleMale  PHQ-9 symptom group  All symptom groups Minimal (0–4) Mild (5–9) Moderate (10–14) Moderately severe (15–19) Severe (20–27)  \n\n\n\nChart view  Participant scatterplot  Elevated hs-CRP by symptom group\n\n\nReset filters\n\n\n\n\n\nParticipants in viewLoading…\n\n\nAbove 3 mg/L hs-CRP—\n\n\nMedian hs-CRP—\n\n\n\nLoading the locally stored NHANES observations…\n\n\nParticipant-level view\n\n\n\n\n\n\n\n\n\n\nStatistics by symptom group\n\n\nEach row recalculates for the selected age, sex, and symptom filters. Percentages are unweighted.\n\n\n\n\n\nPHQ-9 symptom group\n\n\nParticipants, n\n\n\nAbove 3 mg/L\n\n\nMedian hs-CRP (mg/L)\n\n\n\n\n\n\nLoading participant data…\n\n\n\n\n\n\n↗\n\nReading these comparisons\n\nThe charts and summaries are descriptive and unweighted. A higher percentage in one group is not evidence that depressive symptoms caused inflammation—or that this pattern applies to an individual."
   },
   {
+    "objectID": "quiz.html",
+    "href": "quiz.html",
+    "title": "Knowledge Quest",
+    "section": "",
+    "text": "A five-minute refresher\n\n\nKnowledge Quest\n\n\nTake a quick quiz on what the survey can tell us—and what it can’t. Every answer comes with a short explanation, so it’s a game and a recap.\n\n\n\nmind ↔︎ body\n\n\n\n\nQuestion 1 of 6 ✨ Ready?\n\n\n\n\n\n\n\n\n\n\n\n\nScore: 0 Next question →\n\n\n\n✦\n\n\nQuest complete!\n\n\n\n\nKeep this in mind: These are unweighted, descriptive patterns in one survey sample. They do not show cause and effect, diagnose anyone, or measure overall immune strength.\n\n\nPlay again ↻\n\n\n\n\nJust for learning—not a health assessment. This quiz uses the same definitions and cautions as the project’s methods and findings."
+  },
+  {
+    "objectID": "story.html",
+    "href": "story.html",
+    "title": "When Emotions Become Physical",
+    "section": "",
+    "text": "A measured question, not a simple answer\n\n\n\nWhat does a self-reported symptom scale have to do with a blood marker? This comparison offers a careful starting point."
+  },
+  {
+    "objectID": "story.html#the-share-above-3-mgl",
+    "href": "story.html#the-share-above-3-mgl",
+    "title": "When Emotions Become Physical",
+    "section": "The share above 3 mg/L",
+    "text": "The share above 3 mg/L\nEach bar is the percentage of participants in that PHQ-9 symptom group whose hs-CRP was above 3 mg/L. Denominators are shown below the group labels; values describe this complete-case sample, not the U.S. population.\n\n\n\n\n\n\n\n\n\nThe question here is whether the proportion above a commonly used hs-CRP threshold differs across PHQ-9 symptom groups in adults who completed all the selected NHANES measures. The PHQ-9 asks about nine symptoms over the previous two weeks; it is a screening measure, not a diagnosis or a complete account of someone’s emotional life.\nIn this sample, the observed proportions range from 33.6% to 50.0% across groups. The group denominators shown on the chart matter: the more severe symptom categories can have fewer participants, so their percentages may be less stable. These figures are unweighted descriptions, not adjusted estimates for all U.S. adults.\nA 2026 NHANES analysis by Arellano and colleagues examined hs-CRP and depression symptom severity using multivariable methods. That peer-reviewed work provides context, but this project uses a complete-case subset and does not apply survey weights or reproduce its adjusted analyses. A separate 2024 cross-sectional study also examines hs-CRP alongside depressive symptoms.\nNHANES is observational and these measurements do not establish which came first, explain an association, or rule out other factors. hs-CRP is a nonspecific marker of inflammation—not a measure of immune strength, emotional experience as a whole, or how quickly a person recovers.\n\ni\n\nInterpret with care\n\nGroup-level percentages cannot diagnose individuals. This visualization does not measure immune function or healing speed, and it does not support a cause-and-effect conclusion."
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "The Mind–Immunity Connection",
@@ -54,20 +75,6 @@
     "title": "The Mind–Immunity Connection",
     "section": "A marker, not a verdict",
     "text": "A marker, not a verdict\nInflammation is part of the body’s response to injury and infection. C-reactive protein is produced by the liver, and hs-CRP is a sensitive blood measure of this protein. It can be associated with many conditions and circumstances; one measurement does not describe someone’s whole immune system.\nThis plot shows how two measured values sit alongside one another in this sample. It cannot establish why either value is higher or lower, predict an individual’s health, or show that one causes the other.\n\n↗Explore the evidenceFilter participants and compare symptom groups. ◒When emotions become physicalSee the symptom-group comparison and context. ⌕How we measured itFollow the data, definitions, and limitations."
-  },
-  {
-    "objectID": "story.html",
-    "href": "story.html",
-    "title": "When Emotions Become Physical",
-    "section": "",
-    "text": "A measured question, not a simple answer\n\n\n\nWhat does a self-reported symptom scale have to do with a blood marker? This comparison offers a careful starting point."
-  },
-  {
-    "objectID": "story.html#the-share-above-3-mgl",
-    "href": "story.html#the-share-above-3-mgl",
-    "title": "When Emotions Become Physical",
-    "section": "The share above 3 mg/L",
-    "text": "The share above 3 mg/L\nEach bar is the percentage of participants in that PHQ-9 symptom group whose hs-CRP was above 3 mg/L. Denominators are shown below the group labels; values describe this complete-case sample, not the U.S. population.\n\n\n\n\n\n\n\n\n\nThe question here is whether the proportion above a commonly used hs-CRP threshold differs across PHQ-9 symptom groups in adults who completed all the selected NHANES measures. The PHQ-9 asks about nine symptoms over the previous two weeks; it is a screening measure, not a diagnosis or a complete account of someone’s emotional life.\nIn this sample, the observed proportions range from 33.6% to 50.0% across groups. The group denominators shown on the chart matter: the more severe symptom categories can have fewer participants, so their percentages may be less stable. These figures are unweighted descriptions, not adjusted estimates for all U.S. adults.\nA 2026 NHANES analysis by Arellano and colleagues examined hs-CRP and depression symptom severity using multivariable methods. That peer-reviewed work provides context, but this project uses a complete-case subset and does not apply survey weights or reproduce its adjusted analyses. A separate 2024 cross-sectional study also examines hs-CRP alongside depressive symptoms.\nNHANES is observational and these measurements do not establish which came first, explain an association, or rule out other factors. hs-CRP is a nonspecific marker of inflammation—not a measure of immune strength, emotional experience as a whole, or how quickly a person recovers.\n\ni\n\nInterpret with care\n\nGroup-level percentages cannot diagnose individuals. This visualization does not measure immune function or healing speed, and it does not support a cause-and-effect conclusion."
   },
   {
     "objectID": "about.html",
